@@ -1,9 +1,10 @@
 const container = document.querySelector("#container");
+const btnReset = document.querySelector("#reset");
 
 const CONTAINER_WIDTH = 512;
 
 function drawGrid(squaresPerSide) {
-    let size = Math.floor(CONTAINER_WIDTH / squaresPerSide);
+    let size = CONTAINER_WIDTH / squaresPerSide;
     let numberCells = squaresPerSide ** 2;
     const newCell = document.createElement("div");
     newCell.classList.add("cell");
@@ -21,5 +22,18 @@ function drawGrid(squaresPerSide) {
         }
     );
 }
+
+btnReset.addEventListener("click", () => {
+    let squaresPerSide = prompt("How many cells per side?", 16);
+    if (squaresPerSide % 1 != 0) {
+        alert("Please insert a whole number.");
+        return;
+    }
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+    }
+    squaresPerSide = parseInt(squaresPerSide);
+    drawGrid(squaresPerSide);
+});
 
 drawGrid(16);
