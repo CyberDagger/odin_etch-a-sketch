@@ -15,8 +15,8 @@ function drawGrid(squaresPerSide) {
     const cellList = document.querySelectorAll(".cell");
     cellList.forEach(
         (cell) => {
-            cell.addEventListener("mouseover", () => {
-                console.log("Move away! You're blocking the sun!")
+            cell.addEventListener("mouseover", (e) => {
+                e.target.style.background = "black";
             });
         }
     );
