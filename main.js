@@ -3,7 +3,7 @@ const container = document.querySelector("#container");
 const CONTAINER_WIDTH = 512;
 
 function drawGrid(squaresPerSide) {
-    let size = CONTAINER_WIDTH / squaresPerSide;
+    let size = Math.floor(CONTAINER_WIDTH / squaresPerSide);
     let numberCells = squaresPerSide ** 2;
     const cell = document.createElement("div");
     cell.classList.add("cell");
