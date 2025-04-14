@@ -17,7 +17,14 @@ function drawGrid(squaresPerSide) {
     cellList.forEach(
         (cell) => {
             cell.addEventListener("mouseover", (e) => {
-                e.target.style.background = "black";
+                let randColor = Math.floor(Math.random() * 16777215);
+                let hex = randColor.toString(16);
+                e.target.style.background = "#" + hex;
+                let opacity = Number(e.target.style.opacity);
+                if (opacity < 1) {
+                    opacity += 0.1;
+                }
+                e.target.style.opacity = opacity;
             });
         }
     );
